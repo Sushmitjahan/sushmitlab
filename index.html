@@ -137,6 +137,15 @@
             width: 100%;
         }
         
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -620,23 +629,57 @@
             border-color: var(--accent-violet);
         }
         
-        .equipment-img {
+        .equipment-slider {
             flex: 1;
             border-radius: 15px;
             overflow: hidden;
             transform: rotateY(-10deg);
             transition: var(--transition);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            height: 400px;
         }
         
-        .equipment-container:hover .equipment-img {
-            transform: rotateY(-5deg);
+        .equipment-slides {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
         }
         
-        .equipment-img img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .equipment-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .equipment-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .equipment-nav:hover {
+            background: var(--accent-violet);
+        }
+        
+        .equipment-prev {
+            left: 15px;
+        }
+        
+        .equipment-next {
+            right: 15px;
         }
         
         .equipment-info {
@@ -886,6 +929,218 @@
             animation: float 8s infinite ease-in-out;
         }
         
+        /* NEW SECTIONS */
+        /* News Section */
+        .news-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .news-item {
+            background: rgba(20, 20, 40, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent-blue);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(77, 138, 255, 0.2);
+        }
+        
+        .news-icon {
+            background: rgba(77, 138, 255, 0.2);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 2rem;
+            color: var(--accent-light-blue);
+        }
+        
+        .news-content h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .news-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+        }
+        
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-violet-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .news-link:hover {
+            color: var(--accent-cyan);
+            gap: 12px;
+        }
+        
+        /* Gallery Section */
+        .gallery-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            height: 500px;
+        }
+        
+        .gallery-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .gallery-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .gallery-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .gallery-dot.active {
+            background: var(--accent-violet);
+            transform: scale(1.2);
+        }
+        
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.5rem;
+        }
+        
+        .gallery-nav:hover {
+            background: var(--accent-violet);
+        }
+        
+        .gallery-prev {
+            left: 20px;
+        }
+        
+        .gallery-next {
+            right: 20px;
+        }
+        
+        /* Social Section */
+        .social-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(20, 20, 40, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid rgba(157, 107, 255, 0.2);
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(77, 138, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent-light-blue);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(45deg, var(--accent-violet), var(--accent-blue));
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .social-icon:hover {
+            color: white;
+            transform: translateY(-10px);
+        }
+        
+        .social-icon:hover::before {
+            height: 100%;
+        }
+        
+        .social-icon span {
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 100%;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover span {
+            bottom: -35px;
+            opacity: 1;
+        }
+        
         /* Responsive Design */
         @media (max-width: 1200px) {
             .hero h1 {
@@ -928,11 +1183,31 @@
             .equipment-container {
                 flex-direction: column;
             }
+
+            .gallery-container {
+                height: 400px;
+            }
         }
         
         @media (max-width: 768px) {
             nav ul {
-                gap: 1.5rem;
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 26, 0.9);
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 1rem;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
             }
             
             .section-header h2 {
@@ -950,13 +1225,28 @@
             .about-highlights {
                 grid-template-columns: 1fr;
             }
+
+            .news-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .gallery-container {
+                height: 300px;
+            }
+
+            .equipment-slider {
+                height: 300px;
+            }
+
+            .social-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
         }
         
         @media (max-width: 576px) {
-            nav ul {
-                gap: 1rem;
-            }
-            
             .hero h1 {
                 font-size: 2.4rem;
             }
@@ -978,6 +1268,32 @@
             .section-header h2 {
                 font-size: 2.2rem;
             }
+
+            .gallery-container {
+                height: 250px;
+            }
+
+            .gallery-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .equipment-slider {
+                height: 250px;
+            }
+
+            .news-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .social-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -992,6 +1308,9 @@
                 <i class="fas fa-brain"></i>
                 <span>Sushmit</span> Lab
             </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -999,6 +1318,9 @@
                     <li><a href="#research">Research</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#publications">Publications</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#social">Social</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1066,14 +1388,14 @@
                 <div class="about-image">
                     <h3>Our Mission</h3>
                     <p>Our mission is to computationally explore brain complexity and plasticity using EEG and neurotechnology, develop advanced BCI solutions, and transform mental health diagnostics—making depression treatment more accessible worldwide.</p>
-                    <div class="contact-item" style="margin-top: 30px;">
+                    <!-- <div class="contact-item" style="margin-top: 30px;">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Lab Location</h4>
                             <p>Center for Interdisciplinary Research<br>
                             Varendra University, Rajshahi, Bangladesh</p>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -1112,8 +1434,30 @@
                 <p>State-of-the-art technology enabling our neuroscience research</p>
             </div>
             <div class="equipment-container">
-                <div class="equipment-img">
-                    <img src="images/2.jpeg" alt="EEG Headset">
+                <div class="equipment-slider" id="equipmentSlider">
+                    <div class="equipment-slides">
+                        <div class="equipment-slide" style="background: url('images/2.jpeg') center/cover;">
+                            <div style="background: rgba(0,0,0,0.5); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px;">
+                                <h3>EEG Headset</h3>
+                            </div>
+                        </div>
+                        <div class="equipment-slide" style="background: url('images/3.jpeg') center/cover;">
+                            <div style="background: rgba(0,0,0,0.5); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px;">
+                                <h3>Professor Rahmatullah wears the headset</h3>
+                            </div>
+                        </div>
+                        <div class="equipment-slide" style="background: url('images/4.jpeg') center/cover;">
+                            <div style="background: rgba(0,0,0,0.5); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px;">
+                                <h3>Setting up the EEG headset</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="equipment-nav equipment-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="equipment-nav equipment-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
                 </div>
                 <div class="equipment-info">
                     <h3>Emotiv EPOC X 14-Channel EEG Headset</h3>
@@ -1142,7 +1486,7 @@
             <div class="team-container">
                 <div class="team-member">
                     <div class="member-img">
-                      <img src="images/1.png" alt="Sushmit Jahan">
+                        <img src="images/sushmit.png" alt="Sushmit Jahan">
                     </div>
                     <div class="member-info">
                         <h3>Sushmit Jahan</h3>
@@ -1152,14 +1496,14 @@
                             <a href="https://www.linkedin.com/in/sushmit/"><i class="fab fa-linkedin-in"></i></a>
                             <a href="https://scholar.google.com/citations?user=6t9jZxoAAAAJ&hl=en"><i class="fab fa-google"></i></a>
                             <a href="sushmitrose@gmail.com"><i class="fas fa-envelope"></i></a>
-                            <a href="https://www.researchgate.net/profile/Sushmit-Jahan?ev=hdr_xprf"><i class="fab fa-researchgate"></i></a>
+                            <a href="https://www.researchgate.net/profile/Sushmit-Jahan"><i class="fab fa-researchgate"></i></a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="images/bushra3.png" alt="Research Assistant">
+                        <img src="images/bushra.JPG" alt="Research Assistant">
                     </div>
                     <div class="member-info">
                         <h3>Rushdania Bushra</h3>
@@ -1174,10 +1518,10 @@
                 
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="images/nafis.png" alt="Nafis Ahmed">
+                        <img src="images/mainul.jpeg" alt="Nafis Ahmed">
                     </div>
                     <div class="member-info">
-                        <h3>Nafis Ahmed</h3>
+                        <h3>Mainul Islam</h3>
                         <span class="role">Member</span>
                         <p>Researching computational neurotechniques and brain plasticity in treatment-resistant depression.</p>
                         <div class="social-links">
@@ -1187,6 +1531,35 @@
                     </div>
                 </div>
                   <div class="team-member">
+                    <div class="member-img">
+                        <img src="images/nafis.png" alt="Nafis Ahmed">
+                    </div>
+                    <div class="member-info">
+                        <h3>Nafis Ahmed</h3>
+                        <span class="role">Member</span>
+                        <p>Researching computational neurotechniques and brain plasticity in treatment-resistant depression.</p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/mainul570?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-researchgate"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="images/masruk.jpeg" alt="Lab Technician">
+                    </div>
+                    <div class="member-info">
+                        <h3>Masruk Hassan</h3>
+                        <span class="role">Member</span>
+                        <p>EEG equipment specialist and data acquisition expert for neuroscience experiments.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
                     <div class="member-img">
                         <img src="images/warid.JPG" alt="Nafis Ahmed">
                     </div>
@@ -1201,10 +1574,9 @@
                     </div>
                 </div>
 
-                
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="images/afifa2.png" alt="Lab Technician">
+                        <img src="images/afifa.png" alt="Nafis Ahmed">
                     </div>
                     <div class="member-info">
                         <h3>Afifa Rahman</h3>
@@ -1212,40 +1584,25 @@
                         <p>EEG equipment specialist and data acquisition expert for neuroscience experiments.</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-researchgate"></i></a>
                         </div>
                     </div>
                 </div>
+
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="images/t.jpeg" alt="Nafis Ahmed">
+                        <img src="images/tazri.jpg" alt="Nafis Ahmed">
                     </div>
                     <div class="member-info">
                         <h3>Zannatul Tazri</h3>
                         <span class="role">Member</span>
-                        <p>Researching computational neurotechniques and brain plasticity in treatment-resistant depression.</p>
+                        <p>EEG equipment specializing and data acquisition expert for neuroscience experiments, with a focus on machine learning-based EEG analysis.</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#"><i class="fab fa-researchgate"></i></a>
                         </div>
                     </div>
                 </div>
-
-                <div class="team-member">
-                    <div class="member-img">
-                        <img src="images/b.jpeg" alt="Nafis Ahmed">
-                    </div>
-                    <div class="member-info">
-                        <h3>Mst. Sadia Mostofa </h3>
-                        <span class="role">Member</span>
-                        <p>Researching computational neurotechniques and brain plasticity in treatment-resistant depression.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-researchgate"></i></a>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="team-member">
                     <div class="member-img">
                         <img src="images/h.webp" alt="Nafis Ahmed">
@@ -1253,14 +1610,28 @@
                     <div class="member-info">
                         <h3>Mst. Sadia Banu</h3>
                         <span class="role">Member</span>
-                        <p>Researching computational neurotechniques and brain plasticity in treatment-resistant depression.</p>
+                        <p>Specializing in machine learning applications for EEG signal analysis and schizophrenia detection, expert in system build up analysis and biomedical dataset creation.</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#"><i class="fab fa-researchgate"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="team-member">
+                  <div class="team-member">
+                    <div class="member-img">
+                        <img src="images/b.jpeg" alt="Nafis Ahmed">
+                    </div>
+                    <div class="member-info">
+                        <h3>Mst. Sadia Mostofa</h3>
+                        <span class="role">Member</span>
+                        <p>EEG equipment specializing and data acquisition expert in neuroscience research. Skilled in system setup and EEG recordings for high-quality data analysis.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-researchgate"></i></a>
+                        </div>
+                    </div>
+                </div>
+                  <div class="team-member">
                     <div class="member-img">
                         <img src="images/s.jpeg" alt="Nafis Ahmed">
                     </div>
@@ -1292,20 +1663,135 @@
                     <div class="pub-title">Major depressive disorder diagnosis from electroencephalogram data and potential treatment with dimethyltryptamine</div>
                     <div class="pub-authors">Jahan, S. (2023)</div>
                     <div class="pub-journal">International Advanced Researches and Engineering Journal, 7(2), 90–96</div>
-                    <a href="https://doi.org/10.35860/iarej.1231288" target="_blank" class="pub-link">Read Publication <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://dergipark.org.tr/en/pub/iarej/issue/79580/1231288" class="pub-link">Read Publication <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="publication-item">
                     <div class="pub-title">An Efficient Unicode encoded in UTF-16 text cryptography based on the AES algorithm</div>
                     <div class="pub-authors">Rose, S. J., Ozkaya, U., Yasmin, S., Jabin, S., Hasan, R., & Kabir, E. (2023, July 14)</div>
                     <div class="pub-journal">IACR Cryptology ePrint Archive</div>
-                    <a href="https://eprint.iacr.org/2023/1104" target="_blank" class="pub-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://eprint.iacr.org/2023/1104" class="pub-link">Read Preprint <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="publication-item">
                     <div class="pub-title">EEG Signal Processing for Detection of Treatment-Resistant Depression Biomarkers</div>
                     <div class="pub-authors">Soon</div>
                     <div class="pub-journal">Soon</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lab News & Updates</h2>
+                <p>Latest developments and announcements from our research lab</p>
+            </div>
+            <div class="news-container">
+                <div class="news-item">
+                    <div class="news-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="news-content">
+                        <h3>New Research Grant Awarded</h3>
+                        <p>Our lab has been awarded a BDT300000 grant from the Center for Interdisciplinary Research to advance our work.</p>
+                        <a href="https://drive.google.com/file/d/1icyPwOYRp2zMDObSnuArrpBsdLh-s2wW/view?usp=sharing" class="news-link">View News at Page:5-6<i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="news-content">
+                        <h3>International Conference Presentation</h3>
+                        <p>Bushra and Tazri with other team members presented our latest findings at the International Conference on Undergraduate Conference on Intelligent Computing and Systems.</p>
+                        <a href="#" class="news-link">View Conference Paper <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="news-content">
+                        <h3>Collaboration with </h3>
+                        <p>Soon</p>
+                        <a href="#" class="news-link">Soon <i class="fas fa-book-open"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lab Gallery</h2>
+                <p>A visual journey through our research activities and facilities</p>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-slides">
+                    <div class="gallery-slide" style="background: url('images/3.jpeg') center/cover;"></div>
+                    <div class="gallery-slide" style="background: url('images/2.jpeg') center/cover;"></div>
+                    <div class="gallery-slide" style="background: url('images/g1.jpeg') center/cover;"></div>
+                    <div class="gallery-slide" style="background: url('images/2.jpeg') center/cover;"></div>
+                </div>
+                <div class="gallery-nav gallery-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="gallery-nav gallery-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="gallery-controls">
+                    <div class="gallery-dot active"></div>
+                    <div class="gallery-dot"></div>
+                    <div class="gallery-dot"></div>
+                    <div class="gallery-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section id="social">
+        <div class="container">
+            <div class="section-header">
+                <h2>Connect With Us</h2>
+                <p>Stay updated with our latest research and discoveries</p>
+            </div>
+            <div class="social-container">
+                <h3>Join Our Neuroscience Community</h3>
+                <p>Follow us on social media to stay connected with our research breakthroughs, events, and publications.</p>
+                
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sushmit/" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-researchgate"></i>
+                        <span>ResearchGate</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1356,7 +1842,7 @@
                     </div>
                     <div class="social-links" style="justify-content: flex-start; margin-top: 20px;">
                         <a href="https://www.linkedin.com/in/sushmit/"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-google"></i></a>
+                        <a href=""><i class="fab fa-google"></i></a>
                         <a href="#"><i class="fab fa-researchgate"></i></a>
                         <a href="#"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1368,7 +1854,7 @@
                     <p>We welcome partnerships with academic institutions, healthcare organizations, and industry partners in computational neuroscience and neurotechnology.</p>
                     <p style="margin-top: 20px;">Interested in research collaborations, student exchanges, or joint grant applications? Contact Sushmit Jahan to explore possibilities.</p>
                     <p style="margin-top: 20px;">Motivated students (undergraduate and graduate) are encouraged to join our research team. Please email your CV and research interests.</p>
-                    <a href="mailto:sushmitrose@gmail.com" class="btn btn-primary" style="margin-top: 30px;">Email for Collaboration</a>
+                    <a href="#" class="btn btn-primary" style="margin-top: 30px;">Email for Collaboration</a>
                 </div>
             </div>
         </div>
@@ -1391,7 +1877,11 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Lab</a></li>
                         <li><a href="#research">Research</a></li>
+                        <li><a href="#team">Team</a></li>
                         <li><a href="#publications">Publications</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#social">Social</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1425,6 +1915,16 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1432,6 +1932,12 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                
+                // Close mobile menu if open
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
             });
         });
         
@@ -1449,7 +1955,7 @@
         
         // Animation on scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.research-card, .team-member, .publication-item, .highlight-card');
+            const elements = document.querySelectorAll('.research-card, .team-member, .publication-item, .highlight-card, .news-item');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
@@ -1463,7 +1969,7 @@
         }
         
         // Set initial state for animated elements
-        document.querySelectorAll('.research-card, .team-member, .publication-item, .highlight-card').forEach(el => {
+        document.querySelectorAll('.research-card, .team-member, .publication-item, .highlight-card, .news-item').forEach(el => {
             el.style.opacity = 0;
             el.style.transform = 'translateY(30px) rotateY(10deg)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -1517,6 +2023,67 @@
                 heroImage.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
             }
         });
+        
+        // Gallery Slider
+        const gallerySlides = document.querySelector('.gallery-slides');
+        const galleryDots = document.querySelectorAll('.gallery-dot');
+        let currentGallerySlide = 0;
+        
+        function updateGallerySlider() {
+            gallerySlides.style.transform = `translateX(-${currentGallerySlide * 100}%)`;
+            
+            galleryDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentGallerySlide);
+            });
+        }
+        
+        document.querySelector('.gallery-next').addEventListener('click', () => {
+            currentGallerySlide = (currentGallerySlide + 1) % galleryDots.length;
+            updateGallerySlider();
+        });
+        
+        document.querySelector('.gallery-prev').addEventListener('click', () => {
+            currentGallerySlide = (currentGallerySlide - 1 + galleryDots.length) % galleryDots.length;
+            updateGallerySlider();
+        });
+        
+        galleryDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentGallerySlide = index;
+                updateGallerySlider();
+            });
+        });
+        
+        // Auto slide for gallery
+        setInterval(() => {
+            currentGallerySlide = (currentGallerySlide + 1) % galleryDots.length;
+            updateGallerySlider();
+        }, 5000);
+        
+        // Equipment Slider
+        const equipmentSlides = document.querySelector('.equipment-slides');
+        let currentEquipmentSlide = 0;
+        const equipmentSlideCount = document.querySelectorAll('.equipment-slide').length;
+        
+        function updateEquipmentSlider() {
+            equipmentSlides.style.transform = `translateX(-${currentEquipmentSlide * 100}%)`;
+        }
+        
+        document.querySelector('.equipment-next').addEventListener('click', () => {
+            currentEquipmentSlide = (currentEquipmentSlide + 1) % equipmentSlideCount;
+            updateEquipmentSlider();
+        });
+        
+        document.querySelector('.equipment-prev').addEventListener('click', () => {
+            currentEquipmentSlide = (currentEquipmentSlide - 1 + equipmentSlideCount) % equipmentSlideCount;
+            updateEquipmentSlider();
+        });
+        
+        // Auto slide for equipment
+        setInterval(() => {
+            currentEquipmentSlide = (currentEquipmentSlide + 1) % equipmentSlideCount;
+            updateEquipmentSlider();
+        }, 4000);
     </script>
 </body>
 </html>
